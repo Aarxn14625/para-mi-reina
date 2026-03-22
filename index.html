@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para mi niña 💛</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#fff3a0, #ffd000);
+  font-family: Arial;
+  overflow: hidden;
+}
+
+/* TEXTO */
+h1 {
+  position: absolute;
+  top: 30px;
+  color: #5a3e00;
+}
+
+p {
+  position: absolute;
+  bottom: 30px;
+  color: #4a3400;
+}
+
+/* RAMO */
+.ramo {
+  position: relative;
+  width: 220px;
+  height: 400px;
+}
+
+/* GRUPOS (punto de unión) */
+.grupo {
+  position: absolute;
+  bottom: 140px;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+/* TALLO */
+.tallo {
+  width: 6px;
+  height: 180px;
+  background: #0b6623;
+  margin: auto;
+}
+
+/* FLOR */
+.flor {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  margin-bottom: -5px;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+/* CENTRO */
+.centro {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #cc8400;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* PETALOS */
+.petalo {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffd700;
+  border-radius: 50%;
+}
+
+.petalo:nth-child(1) { top: 0; left: 20px; }
+.petalo:nth-child(2) { bottom: 0; left: 20px; }
+.petalo:nth-child(3) { left: 0; top: 20px; }
+.petalo:nth-child(4) { right: 0; top: 20px; }
+
+/* APERTURA */
+.g1 { transform: rotate(-30deg); }
+.g2 { transform: rotate(-15deg); }
+.g3 { transform: rotate(0deg); }
+.g4 { transform: rotate(15deg); }
+.g5 { transform: rotate(30deg); }
+
+/* 🎀 CINTA MÁS ARRIBA */
+.cinta {
+  position: absolute;
+  bottom: 210px; /* más al medio */
+  left: 60%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 20px;
+  background: red;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.cinta::before,
+.cinta::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: red;
+  border-radius: 50%;
+  top: -10px;
+}
+
+.cinta::before { left: -15px; }
+.cinta::after { right: -15px; }
+
+/* 🌼 PETALOS CAYENDO */
+.petalo-caida {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  animation: caer linear infinite;
+}
+
+@keyframes caer {
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(100vh); opacity: 1; }
+}
+
+/* ANIMACION */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Para mi niña 💛</h1>
+
+<div class="ramo">
+
+  <div class="grupo g1">
+    <div class="flor">
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+  </div>
+
+  <div class="grupo g2">
+    <div class="flor">
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+  </div>
+
+  <div class="grupo g3">
+    <div class="flor">
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+  </div>
+
+  <div class="grupo g4">
+    <div class="flor">
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+  </div>
+
+  <div class="grupo g5">
+    <div class="flor">
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="petalo"></div><div class="petalo"></div>
+      <div class="centro"></div>
+    </div>
+    <div class="tallo"></div>
+  </div>
+
+  <div class="cinta"></div>
+
+</div>
+
+<p>Para la personita que me alegra los días &lt;3🌼</p>
+
+<!-- 🎵 MUSICA -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b4f7c6b7.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🌼 SCRIPT PETALOS -->
+<script>
+for (let i = 0; i < 30; i++) {
+  let p = document.createElement("div");
+  p.className = "petalo-caida";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(p);
+}
+</script>
+
+</body>
+</html>
